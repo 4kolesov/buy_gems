@@ -1,0 +1,21 @@
+version: '3.3'
+services:
+
+  backend:
+    build:
+      context: ./gems_deals/
+    restart: always
+    command: >
+      bash -c "python manage.py makemigrations &&
+      python manage.py migrate &&
+      python manage.py collectstatic --noinput &&
+      gunicorn --bind 0:8000 gems_deals.wsgi"
+    volumes:
+      - static_value:/app/static/
+    env_file:
+      - .env
+    ports:
+      - 8000:8000
+
+volumes:
+  static_value:
