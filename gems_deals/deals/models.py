@@ -2,7 +2,8 @@ from django.db import models
 
 
 class Deal(models.Model):
-    "Модель сделки."
+    """Модель сделки."""
+
     customer = models.CharField(
         verbose_name='Username покупателя',
         max_length=100,

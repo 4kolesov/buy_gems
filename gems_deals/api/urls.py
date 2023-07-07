@@ -5,5 +5,5 @@ app_name = 'api'
 
 urlpatterns = [
     path('v1/upload/', process_deals_file, name='file-upload'),
-    path('v1/data/', get_top_clients, name='processed-data'),
+    path('v1/top_clients/', get_top_clients, name='processed-data'),
 ]
